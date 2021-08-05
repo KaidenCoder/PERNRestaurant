@@ -109,7 +109,7 @@ const DisplayMeals = () => {
                     <div className="row">
 
                         {meals.map((v, i) => (
-                            // 
+
                             <div key={v.meal_id} className="col-sm mb-2 mt-2">
 
                                 <MealItem>
@@ -125,7 +125,7 @@ const DisplayMeals = () => {
                                 </MealItem>
 
                             </div>
-                            // </MealItem>
+
                         ))}
 
                     </div>
