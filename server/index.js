@@ -13,7 +13,7 @@ app.use(express.json())
 app.post("/create", async (req, res) => {
     try {
         const newMeal = await pool.query(
-            "insert into meals (meal_id, img, description, price, rating , occasion, timing) values (8, 'https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg', 'fish fofos', 800, 4.50, 'house party', 'food trucks') RETURNING *;"
+            "insert into meals (meal_id, img, description, price, rating , occasion, timing) values (9, 'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg', 'Seafood fideuà', 1900, 4.63, 'house party', 'food trucks'); RETURNING *;"
         )
         res.json(newMeal)
     } catch (err) {
@@ -35,7 +35,9 @@ app.get("/meals", async (req, res) => {
 // get a meal id
 app.get("/meals/:id", async (req, res) => {
     try {
-
+        const { id } = req.params;
+        const meal = await pool.query("SELECT * FROM meals where meal_id= $1", [id])
+        res.json(meal.rows)
         console.log(req.params)
     } catch (err) {
         console.log(err.message)

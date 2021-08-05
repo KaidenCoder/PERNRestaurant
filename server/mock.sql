@@ -33,3 +33,9 @@ insert into meals
     (meal_id, img, description, price, rating , occasion, timing)
 values
     (7, 'https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg', 'big mac', 900, 4.23, 'house party', 'food trucks');
+
+
+insert into meals
+    (meal_id, img, description, price, rating , occasion, timing)
+values
+    (9, 'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg', 'Seafood fideuà', 1900, 4.63, 'house party', 'food trucks');
