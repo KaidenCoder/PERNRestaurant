@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Carousel from "react-elastic-carousel";
-import Item from "./Item";
+import styled from 'styled-components';
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -30,6 +30,23 @@ const CarouselMeals = () => {
     const filteredMeals = meals.filter(i => i.rating > 4.5)
     console.log("filteredMeals", filteredMeals)
 
+    const SpaceText2 = styled.span`
+    display: flex;
+    justify-content: space-between;
+`
+
+    const ReorderText = styled.span`
+    color: red;
+`
+    const LowOpacityText = styled.span`
+        opacity: 0.5;
+    `
+
+    const CarouselBody = styled.span`
+        background: rgba(255, 245, 241);
+        padding: 2em;
+    `
+
     return (
         <Carousel breakPoints={breakPoints}>
 
@@ -39,8 +56,8 @@ const CarouselMeals = () => {
                     }>
                         <img src={v.img} className="card-img-top" alt="image" />
                         <div className="card-body">
-                            <h5 className="card-title">{v.description}</h5>
-                            <p className="card-text">${v.price}{" "}{v.rating}</p>
+                            <h5 className="card-title">{v.description[0].toUpperCase() + v.description.slice(1)}</h5>
+                            <SpaceText2><LowOpacityText>{v.occasion}</LowOpacityText><ReorderText>RE-ORDER</ReorderText></SpaceText2>
                         </div>
                     </div>
                 </div>

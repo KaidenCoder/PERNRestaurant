@@ -38,70 +38,94 @@ const DisplayMeals = () => {
     const LowOpacityText = styled.span`
         opacity: 0.5;
     `
+
     const SpaceText = styled.span`
         display: flex;
         justify-content: space-between;
+        padding: 2em; 
+    `
+
+    const SpaceText2 = styled.span`
+        display: flex;
+        justify-content: space-between;
+    `
+
+    const SortBy = styled.span`
+        padding: 0.5em;
+        @media (max-width: 1000px){
+           display: none;
+        }
+    `
+    const ButtonText = styled.button`
+        background: rgba(243, 243, 243);
+        opacity: 0.8;
+        padding: 0.5em;
+        margin: 0.2em;
+        border: none;
+    `
+
+    const ResultText = styled.h3`
+    padding: 0.55em 0 0 0.55em;
+    `
+
+    const MealItem = styled.div`
+        
+        @media only screen and (max-width: 800px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
     `
     return (
         <>
             <Display>
 
-                <h3 style={{ padding: "1em 0 0 1em" }}>Results({meals.length})</h3>
+                <ResultText>Results({meals.length})</ResultText>
                 <hr />
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <div className="container-fluid">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#">5+ Ratings X</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">0 - $700 X</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Non-vegetarian X</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">0-5 kms X</a>
-                                </li>
+                <SpaceText>
+                    <span>
+                        <ButtonText>5+ Ratings X</ButtonText>
+                        <ButtonText>0 - $700 X</ButtonText>
+                        <ButtonText>Non-vegetarian X</ButtonText>
+                        <ButtonText>0-5 kms X</ButtonText>
+                    </span>
+                    <span className="mt-2">
 
+                        <li className="dropdown" style={{ listStyleType: "none" }}>
+                            <SortBy>Sort by:</SortBy>
+                            <span className="mt-2 p-2 dropdown-toggle border" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Most Popular
+                            </span>
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a className="dropdown-item" href="">Highest rating</a></li>
+                                <li><a className="dropdown-item" href="">Deals</a></li>
                             </ul>
-                            <form className="d-flex">
-                                <li className="nav-item" style={{ listStyleType: "none" }}>
-                                    <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sort by: </a>
-                                </li>
-                                <li className="nav-item dropdown" style={{ listStyleType: "none" }}>
+                        </li>
+                    </span>
+                </SpaceText>
 
-                                    <p className="nav-link dropdown-toggle border" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Most Popular
-                                    </p>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a className="dropdown-item" href="">Highest rating</a></li>
-                                        <li><a className="dropdown-item" href="">Deals</a></li>
-                                    </ul>
-                                </li>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
+
+
                 <div className="container">
                     <div className="row">
 
                         {meals.map((v, i) => (
+                            // 
                             <div key={v.meal_id} className="col-sm mb-2 mt-2">
-                                < div className="card" style={{ width: "18rem" }
-                                }>
-                                    <img src={v.img} className="card-img-top" alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{v.description[0].toUpperCase() + v.description.slice(1)}</h5>
-                                        <p className="card-text"><Price>${v.price}/-</Price> <LowOpacityText>per head - 10 dishes</LowOpacityText></p>
-                                        <p className="card-text"><SpaceText><span>{v.rating > 4.50 ? <Star primary><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star> : v.rating > 3.90 && v.rating <= 4.50 ? <Star secondary><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star> : <Star><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star>} <LowOpacityText>213 ratings</LowOpacityText></span> <Price><FiHeart /></Price></SpaceText></p>
+
+                                <MealItem>
+                                    < div className="card" style={{ width: "18rem" }
+                                    }>
+                                        <img src={v.img} className="card-img-top" alt="image" />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{v.description[0].toUpperCase() + v.description.slice(1)}</h5>
+                                            <p className="card-text"><Price>${v.price}/-</Price> <LowOpacityText>per head - 10 dishes</LowOpacityText></p>
+                                            <p className="card-text"><SpaceText2><span>{v.rating > 4.50 ? <Star primary><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star> : v.rating > 3.90 && v.rating <= 4.50 ? <Star secondary><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star> : <Star><FiStar /><RatingNumber>{v.rating}</RatingNumber></Star>} <LowOpacityText>213 ratings</LowOpacityText></span> <Price><FiHeart /></Price></SpaceText2></p>
+                                        </div>
                                     </div>
-                                </div>
+                                </MealItem>
+
                             </div>
+                            // </MealItem>
                         ))}
 
                     </div>

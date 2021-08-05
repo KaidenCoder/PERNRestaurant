@@ -36,8 +36,8 @@ const Dropdown = styled.div`
 
 const Accordion = () => {
 
-    const [clicked, setClicked] = useState(false)
-    const [clicked2, setClicked2] = useState(false)
+    const [clicked, setClicked] = useState(true)
+    const [clicked2, setClicked2] = useState(true)
 
     const toggle = index => {
         if (clicked == index) {
@@ -82,11 +82,11 @@ const Accordion = () => {
                     max={1000}
                     onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)} />
 
-                <Wrap onClick={() => toggle2(2)}>
+                <Wrap onClick={() => toggle(2)}>
                     <h4>Occasion</h4>
-                    <span>{clicked2 === 2 ? <FiMinus /> : <FiPlus />}</span>
+                    <span>{clicked === 2 ? <FiMinus /> : <FiPlus />}</span>
                 </Wrap>
-                {clicked2 == 2 ? (
+                {clicked == 2 ? (
                     <Dropdown>
                         <label className="m-2"> <input type="checkbox" /> Birthday Celebration</label>
                         <label className="m-2"> <input type="checkbox" /> Baby Shower</label>
