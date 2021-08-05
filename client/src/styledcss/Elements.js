@@ -51,6 +51,15 @@ opacity: 0.5;
 `
 
 // CarouselMeals.js
+const RecentOrdertext = styled.h2`
+        padding: 1em;
+        margin-left:1em;
+        text-transform: uppercase;
+        @media (max-width: 600px){
+            text-align: center;
+            margin-left:0em;
+         }
+`
 const ReorderText = styled.span`
         color: red;
 `
@@ -114,6 +123,6 @@ const MealItem = styled.div`
 export {
     DisplayText, FilterText,
     AccordionSection, Wrap, Dropdown, SpaceBetweenText, LowOpacityText,
-    ReorderText,
+    RecentOrdertext, ReorderText,
     Display, Star, RatingNumber, Price, SpaceBetweenTextPadding, SortBy, ButtonText, ResultText, MealItem
 }

@@ -12,6 +12,7 @@ const Accordion = () => {
         setClicked(index)
     }
 
+    //Selecting and Filtering meal items
     return (
         <AccordionSection>
             <SpaceBetweenText>

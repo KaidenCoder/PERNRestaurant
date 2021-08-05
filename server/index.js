@@ -7,8 +7,6 @@ const pool = require("./db")
 app.use(cors())
 app.use(express.json())
 
-// ROUTES//
-
 // create and insert all meal items
 app.post("/create", async (req, res) => {
     try {
@@ -30,7 +28,6 @@ app.get("/meals", async (req, res) => {
         console.log(err.message)
     }
 })
-
 
 // get a meal id
 app.get("/meals/:id", async (req, res) => {

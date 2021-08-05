@@ -18,6 +18,7 @@ const DisplayMeals = () => {
         getMeals()
     }, [])
 
+    // Display all the meals items 
     return (
         <>
             <Display>

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react'
-import "./SliderRange.css"
+import "../vanillacss/SliderRange.css"
 
 const SliderRange = ({ min, max, onChange }) => {
     const [minVal, setMinVal] = useState(min)
@@ -35,6 +35,7 @@ const SliderRange = ({ min, max, onChange }) => {
         onChange({ min: minVal, max: maxVal })
     }, [minVal, maxVal, onChange])
 
+    //Code for Slider price range with Vanilla CSS
     return (
         <>
             <hr />
