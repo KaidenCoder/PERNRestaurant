@@ -39,7 +39,7 @@ const SliderRange = ({ min, max, onChange }) => {
         <>
             <hr />
 
-            <h4 style={{ paddingLeft: "0.4em", paddingBottom: "0.5em" }}>Price <span style={{ fontSize: "1.3rem" }}>${minVal}-${maxVal}</span></h4>
+            <h4 className="pricetitle">Price <span className="pricevalue">${minVal}-${maxVal}</span></h4>
             <div className="container2">
                 <input
                     type="range"

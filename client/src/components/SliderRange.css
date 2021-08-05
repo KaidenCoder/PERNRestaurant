@@ -1,9 +1,18 @@
 .container2 {
-    height: 10vh;
+    height: 8vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 2em;
+}
+
+.pricetitle {
+    padding-left: 0.4em;
+    padding-bottom: 0.5em;
+}
+
+.pricevalue {
+    font-size: 1.3rem;
 }
 
 .slider {
